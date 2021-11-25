@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            text-align: center;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .click{
+            padding: 12px;
+            font-size: 20px;
+            cursor: pointer;
+            color: white;
+            animation: button 1s linear infinite;
+            width:300px;
+            margin: 0 auto;
+            border: 1px solid black;
+        }
+        .click:hover{
+            background-color: red;
+            
+        }
+        @keyframes button{
+            from {
+                background-color: red;
+            }
+            to{
+                background-color: white;
+            }
+        }
+        
+        .main_button{
+            text-align: center;
+            padding: 12px;
+            margin-bottom: 20px;
+        }
+        table{
+            
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        tr,th{
+            border: 1px solid black;
+            padding:20px;
+        }
+        tr,td{
+            border: 1px solid black;
+            padding:20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class = "click">Danh sách Sinh Viên (Hãy nhấn vào đây)</div>
+        <div class="main_button">
+            <table class = "table"></table>
+        </div>
+        
+    </div>
+   
+</body>
+<script>
+    var List_Table = [
+        {
+            name: 'Phạm Tùng Dương',
+            age: 19,
+            address: 'Thanh Hóa'
+        },
+        {
+            name: 'Đậu Ngọc Huyền',
+            age: 19,
+            address: 'Thanh Hóa'
+        },
+        {
+            name: 'CLB ITPTIT',
+            age: 8,
+            address: 'Hà Nội'
+        },
+    ]
+    var click_button = document.querySelector('.click');
+    click_button.onclick = function(){
+        var html =`<tr>
+                <th>Họ và tên</th>
+                <th>Tuổi</th>
+                <th>Nơi ở</th>
+            </tr>`;
+        var bang_table = document.querySelector('table');
+        List_Table.forEach((tab)=>{
+            html += 
+                `<tr>
+                    <td>${tab.name}</td>
+                    <td>${tab.age}</td>
+                    <td>${tab.address}</td>
+                </tr>`
+        })
+        bang_table.innerHTML = html;
+    }
+</script>
+</html>
